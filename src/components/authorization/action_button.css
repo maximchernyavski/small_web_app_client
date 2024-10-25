@@ -1,0 +1,12 @@
+.action_button {
+    background-color: #B4A0E5 !important;
+    border-radius: 0px !important;
+    font-size: 1.86vh !important;
+    border: 1px solid #9E8FB2 !important;
+} 
+
+#sign_in {
+    width: 50%;
+    height: 2.86vh;
+    align-self: end;
+}

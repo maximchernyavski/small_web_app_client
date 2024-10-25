@@ -1,24 +1,19 @@
+import React from 'react'
 import './App.css';
+import LogIn from './pages/login/login.jsx';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom'
 
 function App() {
   return (
-    <div id="menu">
-        <div id="logo_box">
-            <div id="logo">WEB_SHIT</div>
-        </div>
-        <input
-            id="login"
-            class="input"
-            placeholder="User ID"
-            type="text"
-        />
-        <input
-            id="password"
-            class="input"
-            placeholder="Password"
-            type="text"
-        />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<LogIn />} />
+      </Routes>
+    </Router>
   );
 }
 
