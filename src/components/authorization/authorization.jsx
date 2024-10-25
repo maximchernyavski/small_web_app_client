@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 
 import './action_button.css'
@@ -11,6 +12,7 @@ const Authorization = () => {
   const [message, setMessage] = useState('')
   const [alertType, setAlert] = useState('info')
   const regex = /^(\w+[^@\t\s\n\\e\\0.,_:])$/
+  const navigate = useNavigate()
 
   const handleLoginInput = useCallback((e) => {
     setLogin(e.target.value);
@@ -48,8 +50,8 @@ const Authorization = () => {
         "Content-Type": "application/json; charset=UTF-8"
       }
     });
-    if (response["isAdmin"]) {
-      
+    if (response["token"]) {
+      navigate()
     }
     // проверка пароля
     // send to API and check response
