@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 
 import './action_button.css'
 import { Alert, Snackbar } from '@mui/material';
+import {useAuth} from "../router/AuthProvider"
 
 const Authorization = () => {
   const [login, setLogin] = useState('');
@@ -13,6 +14,7 @@ const Authorization = () => {
   const [alertType, setAlert] = useState('info')
   const regex = /^(\w+[^@\t\s\n\\e\\0.,_:])$/
   const navigate = useNavigate()
+  const {setToken} = useAuth()
 
   const handleLoginInput = useCallback((e) => {
     setLogin(e.target.value);
@@ -49,9 +51,13 @@ const Authorization = () => {
       headers: {
         "Content-Type": "application/json; charset=UTF-8"
       }
-    });
-    if (response["token"]) {
-      navigate()
+    })
+    
+    if (response.status === 200) {
+      const data = await response.json()
+      setToken(data.token)
+      navigate('/blog', {replace: true})
+      return
     }
     // проверка пароля
     // send to API and check response

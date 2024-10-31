@@ -1,0 +1,21 @@
+#main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#head {
+    width: 100vw;
+    height: 4.86vh;
+    background-color: #734FCF;
+    border-bottom: 4px solid #452790;
+    margin-bottom: 8px;
+}
+
+#blogs {
+    height: 100%;
+    width: 52%;
+    background-color: #40356E;
+}
