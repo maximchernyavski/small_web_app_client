@@ -9,6 +9,9 @@
 #head {
     width: 100vw;
     height: 4.86vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #734FCF;
     border-bottom: 4px solid #452790;
     margin-bottom: 8px;
@@ -16,6 +19,6 @@
 
 #blogs {
     height: 100%;
-    width: 52%;
+    width: 70%;
     background-color: #40356E;
 }

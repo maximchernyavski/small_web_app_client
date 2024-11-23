@@ -5,7 +5,7 @@ function LogIn() {
     return (
         <div id="menu">
             <div id="logo_box">
-                <div id="logo">WEB_SHIT</div>
+                <div id="logo">WEB_NICE</div>
             </div>
             <Authorization />
         </div>

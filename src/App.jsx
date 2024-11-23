@@ -7,8 +7,8 @@ import './App.css';
 //   Routes,
 //   Route,
 // } from 'react-router-dom'
-import AuthProvider from './components/router/AuthProvider.jsx';
-import Routes from './components/router/Router.jsx';
+import AuthProvider from './components/router/auth_provider.jsx';
+import Routes from './components/router/router.jsx';
 
 function App() {
   return (

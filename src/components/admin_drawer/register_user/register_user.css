@@ -1,0 +1,12 @@
+.input_user_field {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#submit_button {
+    width: 14%;
+    margin-right: 5px;
+    margin-top: 10px;
+    border: 0.5px solid black !important;
+    border-radius: 0px !important; 
+}

@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 
 import './action_button.css'
 import { Alert, Snackbar } from '@mui/material';
-import {useAuth} from "../router/AuthProvider"
+import {useAuth} from "../router/auth_provider"
 
 const Authorization = () => {
   const [login, setLogin] = useState('');
@@ -55,8 +55,15 @@ const Authorization = () => {
     
     if (response.status === 200) {
       const data = await response.json()
+      localStorage.setItem("token", data.token);
+      localStorage.setItem('isAdmin', data.isAdmin);
       setToken(data.token)
       navigate('/blog', {replace: true})
+      return
+    } else {
+      setOpen(true)
+      setMessage("Unknown user")
+      setAlert("error")
       return
     }
     // проверка пароля

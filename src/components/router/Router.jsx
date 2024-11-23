@@ -1,12 +1,14 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { useAuth } from "./AuthProvider";
-import { ProtectedRoute } from "./ProtectedRoute";
+import { useAuth } from "./auth_provider";
+import { ProtectedRoute } from "./protected_route";
+// import { AdminRoute } from "./admin_route";
 import LogIn from "../../pages/login/login";
 import Blog from "../../pages/blog/blog";
-// import { element } from "three/examples/jsm/nodes/Nodes.js";
+import AdminPanel from "../../pages/admin/admin";
 
 const Routes = () => {
   const { token } = useAuth();
+//   const isAdmin = localStorage.getItem("isAdmin")
 
   // Define public routes accessible to all users
   const routesForPublic = [
@@ -26,10 +28,6 @@ const Routes = () => {
           path: "/blog",
           element: <Blog />,
         },
-        // {
-        //   path: "/admin",
-        //   element: <Admin />,
-        // },
       ],
     },
   ];
@@ -37,10 +35,25 @@ const Routes = () => {
   // Define routes accessible only to non-authenticated users
   const routesForNotAuthenticatedOnly = [];
 
+  // Define routes accessible only to admins
+  const routesForAdmins = [
+    {
+        path : "/",
+        element: <ProtectedRoute />,
+        children: [
+            {
+                path : "/admin",
+                element : <AdminPanel />
+            },
+        ],
+    },
+  ];
+
   // Combine and conditionally include routes based on authentication status
   const router = createBrowserRouter([
     ...routesForPublic,
     ...(!token ? routesForNotAuthenticatedOnly : []),
+    ...routesForAdmins,
     ...routesForAuthenticatedOnly,
   ]);
 

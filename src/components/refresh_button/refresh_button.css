@@ -1,0 +1,19 @@
+#refresh {
+    height: 4.86vh !important;
+    background-color: #5430B0;
+    border-right: 2px solid #452790;
+    border-left: 2px solid #452790;
+    /* border: 1px solid black !important; */
+    border-radius: 0px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 2px; */
+}
+
+#refresh_icon {
+    height: 2.86vh;
+    width: 2.86vh;
+    margin-left: 13px;
+    color: #F7ECE1;
+}
